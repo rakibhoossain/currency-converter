@@ -13,10 +13,10 @@ import (
 )
 
 const (
-	DataDir             = "data"
-	RatesCacheFile      = "rates.json"
-	CurrenciesCacheFile = "currencies.json"
-	RatesCacheDuration  = 1 * time.Hour    // Update rates every hour
+	DataDir                 = "data"
+	RatesCacheFile          = "rates.json"
+	CurrenciesCacheFile     = "currencies.json"
+	RatesCacheDuration      = 1 * time.Hour  // Update rates every hour
 	CurrenciesCacheDuration = 24 * time.Hour // Update currencies daily
 )
 
@@ -263,8 +263,6 @@ func (cs *CurrencyService) isCurrenciesCacheValid() bool {
 	age := time.Now().Sub(fileInfo.ModTime())
 	return age < CurrenciesCacheDuration
 }
-
-
 
 // startCacheUpdateRoutines starts background goroutines to update cache periodically
 func (cs *CurrencyService) startCacheUpdateRoutines() {

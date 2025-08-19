@@ -50,7 +50,7 @@ func (h *CurrencyHandler) GetCurrencyRates(c *fiber.Ctx) error {
 // ConvertCurrency handles POST /api/convert
 func (h *CurrencyHandler) ConvertCurrency(c *fiber.Ctx) error {
 	var req models.ConversionRequest
-	
+
 	if err := c.BodyParser(&req); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(models.ErrorResponse{
 			Success: false,

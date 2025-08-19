@@ -11,7 +11,7 @@ func AuthMiddleware(authToken string) fiber.Handler {
 	return func(c *fiber.Ctx) error {
 		// Get Authorization header
 		authHeader := c.Get("Authorization")
-		
+
 		if authHeader == "" {
 			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 				"success": false,
@@ -29,7 +29,7 @@ func AuthMiddleware(authToken string) fiber.Handler {
 
 		// Extract token
 		token := strings.TrimPrefix(authHeader, "Bearer ")
-		
+
 		// Validate token
 		if token != authToken {
 			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
