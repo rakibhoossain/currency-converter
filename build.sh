@@ -39,22 +39,44 @@ Currency Converter API - Distribution Package
 =============================================
 
 Quick Start:
-1. Copy .env.example to .env
-2. Edit .env and set your OpenExchangeRates App ID and Auth Token:
-   - OXR_APP_ID=your_app_id_here
-   - AUTH_TOKEN=your_secure_token_here
-3. Run the appropriate binary for your platform
-4. API will be available at http://localhost:3000
+1. Get OpenExchangeRates API Key:
+   - Sign up for free at: https://openexchangerates.org/signup/free
+   - Copy your App ID from the dashboard
+
+2. Copy .env.example to .env
+
+3. Edit .env and set your configuration:
+   - OXR_APP_ID=your_app_id_here (from OpenExchangeRates dashboard)
+   - AUTH_TOKEN=your_secure_token_here (choose any secure string)
+   - PORT=3000 (optional, defaults to 3000)
+
+4. Run the appropriate binary for your platform:
+   - Linux/macOS: ./start.sh or run binary directly
+   - Windows: start.bat or run .exe directly
+
+5. API will be available at http://localhost:3000
 
 Authentication:
 All API endpoints require Bearer token authentication.
 Include in header: Authorization: Bearer your_auth_token_here
 
-Endpoints:
+API Endpoints:
 - GET /api/health - Health check
-- GET /api/currencies - Get currency symbols
-- GET /api/rates - Get exchange rates
+- GET /api/currencies - Get currency symbols (173 currencies)
+- GET /api/rates - Get exchange rates (updated hourly)
 - POST /api/convert - Convert currencies
+
+Example API Call:
+curl -H "Authorization: Bearer your_auth_token_here" \
+     -H "Content-Type: application/json" \
+     -X POST http://localhost:3000/api/convert \
+     -d '{"from_currency":"USD","to_currency":"EUR","amount":100}'
+
+OpenExchangeRates Free Tier:
+- 1,000 API calls per month
+- Hourly rate updates
+- 170+ currencies
+- Perfect for development and small-scale usage
 
 For full documentation, visit:
 https://github.com/rakibhoossain/currency-converter

@@ -102,6 +102,13 @@ Returns API health status.
 
 ## 🚀 Quick Start
 
+### Prerequisites
+Before you begin, you'll need:
+1. **OpenExchangeRates API Key** (free):
+   - Sign up at [OpenExchangeRates](https://openexchangerates.org/signup/free)
+   - Copy your App ID from the dashboard
+2. **Choose a secure authentication token** for your API
+
 ### Option 1: Download Pre-built Binary (Recommended)
 
 1. **Download the latest release** for your platform from [Releases](https://github.com/rakibhoossain/currency-converter/releases)
@@ -155,9 +162,9 @@ cp .env.example .env
 ```
 Edit `.env` and add your OpenExchangeRates App ID and authentication token:
 ```
-OXR_APP_ID=your_actual_app_id_here
+OXR_APP_ID=your_actual_app_id_here  # Get from https://openexchangerates.org/
 OXR_BASE_URL=https://openexchangerates.org/api
-AUTH_TOKEN=your_secure_auth_token_here
+AUTH_TOKEN=your_secure_auth_token_here  # Choose a secure token for API access
 PORT=3000
 ```
 
@@ -305,6 +312,19 @@ Download from [GitHub Releases](https://github.com/rakibhoossain/currency-conver
 
 - Go 1.21 or higher
 - OpenExchangeRates API account (free tier available)
+
+### Getting OpenExchangeRates API Key
+
+1. **Sign up for a free account** at [OpenExchangeRates](https://openexchangerates.org/signup/free)
+2. **Verify your email** and log in to your dashboard
+3. **Copy your App ID** from the dashboard - this will be your `OXR_APP_ID`
+4. **Free tier includes**:
+   - 1,000 API calls per month
+   - Hourly rate updates
+   - 170+ currencies
+   - Historical data (1 year)
+
+**Note**: The free tier is sufficient for development and small-scale usage. For production use with higher traffic, consider upgrading to a paid plan.
 
 ## 🔗 Dependencies
 
